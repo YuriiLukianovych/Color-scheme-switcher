@@ -94,7 +94,7 @@ label {
 }
 .main-container {
     width: 100%;
-    height: 100vh;
+    min-height: 800px;
     background-color: var(--bg1-color);
     transition: var(--bg-transition);
 
@@ -106,7 +106,7 @@ label {
 }
 .window {
     width: 70vw;
-    height: 90vh;
+    /* height: 90vh; */
     border-radius: 10px;
     overflow: hidden;
 
@@ -137,6 +137,8 @@ label {
     margin-top: -10px;
 }
 .theme__item {
+    flex-grow: 1;
+    flex-shrink: 0;
     height: 160px;
     margin-left: 10px;
     margin-top: 10px;
@@ -181,4 +183,17 @@ input {
 }
 label {
     cursor: pointer;
+}
+
+/* ----------- some adaptive ---------------- */
+@media screen and (max-width: 768px) {
+    .main-container {
+        flex-wrap: wrap;
+    }
+    .theme__list {
+        flex-direction: column;
+    }
+    .theme__item {
+        flex-basis: 100%;
+    }
 }
