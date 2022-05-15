@@ -16,6 +16,10 @@ ul {
     /* default values of variables, we will change it with input:color and JS */
     --positive-color: #57d03b;
     --negative-color: #ff3c41;
+
+    /* constant values for CSS transitions */
+    --bg-transition: background-color 1500ms easy-in-out;
+    --color-transition: color 1500ms easy-in-out;
 }
 
 /* using JS we will add these classes to BODY to apply the theme */
@@ -73,14 +77,24 @@ ul {
 body {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 24px;
+    color: var(--main-text-color);
 }
 h2 {
     margin-bottom: 20px;
+}
+h1,
+h2,
+p,
+label {
+    color: inherit;
+    transition: var(--color-transition);
 }
 .main-container {
     width: 100%;
     height: 100vh;
     background-color: var(--bg1-color);
+    /* transition: var(--bg-transition); */
+    transition: background-color 1500ms easy-in-out;
 
     display: flex;
     align-items: center;
@@ -99,6 +113,8 @@ h2 {
     height: 20%;
     width: 100%;
     background-color: var(--bg2-color);
+    /* transition: var(--bg-transition); */
+    transition: background-color 1500ms easy-in-out;
     text-align: center;
     padding: 30px;
     font-weight: 600;
@@ -107,6 +123,8 @@ h2 {
     height: 80%;
     width: 100%;
     background-color: var(--bg3-color);
+    /* transition: var(--bg-transition); */
+    transition: background-color 1500ms easy-in-out;
     padding: 20px;
 }
 
