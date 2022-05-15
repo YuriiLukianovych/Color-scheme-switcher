@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="deep-ocean">
 
     <div class="main-container">
         <div class="window">
@@ -21,7 +21,7 @@
                 <h2>Theme Selection</h2>
                 <ul class="theme__list">
                     <li class="theme__item">
-                        <div class="preview__wrapper">
+                        <div class="preview__wrapper default">
                             <div class="preview">
                                 <div class="preview__header">
                                     <div class="preview__text"></div>
@@ -29,8 +29,8 @@
                                 <div class="preview__body"></div>
                             </div>
                         </div>
-                        <input type="radio" name="col1" id="col1">
-                        <label for="col1">Theme 1</label>
+                        <input type="radio" name="color-switcher" id="color-switcher1" data-theme="theme-1">
+                        <label for="color-switcher1">Default</label>
                     </li>
                     <li class="theme__item">
                         <div class="preview__wrapper">
@@ -41,8 +41,20 @@
                                 <div class="preview__body"></div>
                             </div>
                         </div>
-                        <input type="radio" name="col1" id="col1">
-                        <label for="col1">Theme 1</label>
+                        <input type="radio" name="color-switcher" id="color-switcher2" data-theme="theme-2">
+                        <label for="color-switcher2">Midnight Blue</label>
+                    </li>
+                    <li class="theme__item">
+                        <div class="preview__wrapper deep-ocean">
+                            <div class="preview">
+                                <div class="preview__header">
+                                    <div class="preview__text"></div>
+                                </div>
+                                <div class="preview__body"></div>
+                            </div>
+                        </div>
+                        <input type="radio" name="color-switcher" id="color-switcher3" data-theme="theme-3">
+                        <label for="color-switcher3">Deep Ocean</label>
                     </li>
                     <li class="theme__item">
                         <div class="preview__wrapper">
@@ -53,8 +65,8 @@
                                 <div class="preview__body"></div>
                             </div>
                         </div>
-                        <input type="radio" name="col1" id="col1">
-                        <label for="col1">Theme 1</label>
+                        <input type="radio" name="color-switcher" id="color-switcher4" data-theme="theme-4">
+                        <label for="color-switcher4">Monochrome</label>
                     </li>
                     <li class="theme__item">
                         <div class="preview__wrapper">
@@ -65,8 +77,8 @@
                                 <div class="preview__body"></div>
                             </div>
                         </div>
-                        <input type="radio" name="col1" id="col1">
-                        <label for="col1">Theme 1</label>
+                        <input type="radio" name="color-switcher" id="color-switcher5" data-theme="theme-5">
+                        <label for="color-switcher5">Pitch Black</label>
                     </li>
                     <li class="theme__item">
                         <div class="preview__wrapper">
@@ -77,22 +89,17 @@
                                 <div class="preview__body"></div>
                             </div>
                         </div>
-                        <input type="radio" name="col1" id="col1">
-                        <label for="col1">Theme 1</label>
-                    </li>
-                    <li class="theme__item">
-                        <div class="preview__wrapper">
-                            <div class="preview">
-                                <div class="preview__header">
-                                    <div class="preview__text"></div>
-                                </div>
-                                <div class="preview__body"></div>
-                            </div>
-                        </div>
-                        <input type="radio" name="col1" id="col1">
-                        <label for="col1">Theme 1</label>
+                        <input type="radio" name="color-switcher" id="color-switcher6" data-theme="theme-6">
+                        <label for="color-switcher6">Other Theme</label>
                     </li>
                 </ul>
+                <h2>Custom Color Selections</h2>
+                <div class="colors">
+                    <label for="positive-color">Positive Color:<input type="color" name="positive-color"
+                            id="positive-color" value="#57d03b"></label>
+                    <label for="negative-color">Negative Color:<input type="color" name="negative-color"
+                            id="negative-color" value="#ff3c41"></label>
+                </div>
             </div>
         </div>
     </div>
