@@ -44,8 +44,5 @@ function themeCustomization() {
         document.body.classList.remove("default");
         // add theme from localStorage
         document.body.classList.add(Theme[savedTheme]);
-        const inp = document.querySelector(`input[data-theme="${savedTheme}"]`);
-        console.log(inp);
-        inp.checked = true;
     }
 }
