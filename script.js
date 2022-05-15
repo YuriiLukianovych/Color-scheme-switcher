@@ -1,3 +1,5 @@
+// ==================  Theme Selection ============================
+
 const themeInputs = document.querySelectorAll("input[data-theme]");
 
 // object with themes
@@ -37,7 +39,7 @@ function changeThemeFn(e) {
 
 function themeCustomization() {
     const savedTheme = localStorage.getItem("theme");
-    console.log(savedTheme);
+
     if (savedTheme) {
         //if in locolStorage saved theme
         // remove default theme
@@ -48,5 +50,62 @@ function themeCustomization() {
         // put 'checked = true' for an input of the loaded theme from localStorage
         const inp = document.querySelector(`[data-theme="${savedTheme}"]`);
         inp.checked = true;
+    }
+}
+// ==================== Custom Color Selection (positive|negative) ========================
+const positiveInputColor = document.querySelector(
+    'input[name="positive-color"]'
+);
+const negativeInputColor = document.querySelector(
+    'input[name="negative-color"]'
+);
+const positiveTextList = document.querySelectorAll(".positive");
+const negativeTextList = document.querySelectorAll(".negative");
+
+// 01 loading user selected colors from localStorage
+colorCustomization();
+
+// 02 listen input changes
+positiveInputColor.addEventListener("input", () => {
+    // saves the selected value for the positive color in the localStorage
+    localStorage.setItem("positive-color", positiveInputColor.value);
+
+    // for all text with .positive class change color on selected
+    positiveTextList.forEach((el) => {
+        el.style.color = positiveInputColor.value;
+    });
+});
+
+negativeInputColor.addEventListener("input", () => {
+    // saves the selected value for the negative color in the localStorage
+    localStorage.setItem("negative-color", negativeInputColor.value);
+
+    // for all text with .negative class change color on selected
+    negativeTextList.forEach((el) => {
+        el.style.color = negativeInputColor.value;
+    });
+});
+
+// function colorCustomization
+function colorCustomization() {
+    const savedPositiveColor = localStorage.getItem("positive-color");
+    const savedNegativeColor = localStorage.getItem("negative-color");
+
+    if (savedPositiveColor) {
+        // add color from localStorage
+        positiveTextList.forEach((el) => {
+            el.style.color = savedPositiveColor;
+        });
+        // change input value to loaded color from localStorage
+        positiveInputColor.value = savedPositiveColor;
+    }
+
+    if (savedNegativeColor) {
+        // add color from localStorage
+        negativeTextList.forEach((el) => {
+            el.style.color = savedNegativeColor;
+        });
+        // change input value to loaded color from localStorage
+        negativeInputColor.value = savedNegativeColor;
     }
 }
