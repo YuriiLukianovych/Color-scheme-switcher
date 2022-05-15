@@ -1,6 +1,7 @@
 // ==================  Theme Selection ============================
 
 const themeInputs = document.querySelectorAll("input[data-theme]");
+const themePreviewCards = document.querySelectorAll("li[data-theme]");
 
 // object with themes
 const Theme = {
@@ -15,27 +16,30 @@ const Theme = {
 // 01 loading user selected theme from localStorage
 themeCustomization();
 
-// 02 listen input changes
-themeInputs.forEach((input) => {
-    input.addEventListener("change", changeThemeFn);
-});
+// 02 listen clicks in preview card
+themePreviewCards.forEach((card) => {
+    card.addEventListener("click", () => {
+        // remove previous theme from BODY
+        Object.values(Theme).forEach((el) => {
+            document.body.classList.remove(el);
+        });
 
-// functions
-function changeThemeFn(e) {
-    // remove previous theme from BODY
-    Object.values(Theme).forEach((el) => {
-        document.body.classList.remove(el);
+        // get theme key from data-atribute from selected card
+        const theme = card.dataset.theme;
+
+        // put 'checked = true' for input in card
+        const input = [...themeInputs].filter(
+            (el) => el.dataset.theme === theme
+        );
+        input[0].checked = true;
+
+        // add selected theme on BODY
+        document.body.classList.add(Theme[theme]);
+
+        // save the selected value in the localStorage with the key 'theme'
+        localStorage.setItem("theme", theme);
     });
-
-    // get theme key from data-atribute from selected input
-    const theme = e.target.dataset.theme;
-
-    // add selected theme on BODY
-    document.body.classList.add(Theme[theme]);
-
-    // save the selected value in the localStorage with the key 'theme'
-    localStorage.setItem("theme", theme);
-}
+});
 
 function themeCustomization() {
     const savedTheme = localStorage.getItem("theme");
@@ -48,8 +52,11 @@ function themeCustomization() {
         document.body.classList.add(Theme[savedTheme]);
 
         // put 'checked = true' for an input of the loaded theme from localStorage
-        const inp = document.querySelector(`[data-theme="${savedTheme}"]`);
-        inp.checked = true;
+        const input = document.querySelector(
+            `input[data-theme="${savedTheme}"]`
+        );
+        console.log("from localStorage - input => ", input);
+        input.checked = true;
     }
 }
 // ==================== Custom Color Selection (positive|negative) ========================
