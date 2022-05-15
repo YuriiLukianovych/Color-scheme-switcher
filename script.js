@@ -13,7 +13,7 @@ const Theme = {
 // 01 loading user selected theme from localStorage
 themeCustomization();
 
-// 02
+// 02 listen input changes
 themeInputs.forEach((input) => {
     input.addEventListener("change", changeThemeFn);
 });
@@ -44,5 +44,9 @@ function themeCustomization() {
         document.body.classList.remove("default");
         // add theme from localStorage
         document.body.classList.add(Theme[savedTheme]);
+
+        // put 'checked = true' for an input of the loaded theme from localStorage
+        const inp = document.querySelector(`[data-theme="${savedTheme}"]`);
+        inp.checked = true;
     }
 }
